@@ -180,15 +180,16 @@ Consistent and reliable performance observed.
 
 This project was collaboratively developed by:
 
-### 🔹 Mayank Saraswati
-
-* Embedded Systems & Hardware Integration
-* (www.linkedin.com/in/mayank-saraswati-111b80351)
 
 ### 🔹 Kashish Dhawan
 
 * Research & System Design
 * (www.linkedin.com/in/kashish-dhawan-91004623a/)
+
+  ### 🔹 Mayank Saraswati
+
+* Embedded Systems & Hardware Integration
+* (www.linkedin.com/in/mayank-saraswati-111b80351)
 
 ---
 
