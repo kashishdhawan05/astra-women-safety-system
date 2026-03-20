@@ -1,172 +1,197 @@
-# astra-women-safety-system
-Of🚨 ASTRA – Smart Women Safety System (Offline IoT Device)
+# 🚨 ASTRA – Offline Women Safety IoT System
 
-⚡ Designed for critical situations where speed, reliability, and independence from smartphones matter the most.
+> 🚨 One-click SOS system that sends real-time location and emergency alerts using IoT.
 
-An embedded safety solution that ensures instant emergency alerts with location tracking, without relying on internet connectivity.
+> ⚡ Built to work when everything else fails — no internet, no delay, no dependency on smartphones.
 
-🌍 Motivation
+A real-time, offline-capable emergency safety device designed to ensure **fast, reliable, and instant alerts** using GPS and GSM technology.
 
-In real-world emergencies, delays caused by unlocking phones, opening apps, or lack of internet can be dangerous.
+---
 
-Most safety systems today:
+## 🌍 Why This Matters
 
-Depend heavily on mobile devices
+In emergency situations, even a few seconds of delay can be critical.
 
-Require multiple user interactions
+Most existing safety solutions:
 
-Fail under poor connectivity
+* Depend on smartphones and internet
+* Require multiple steps to activate
+* Fail in low-network or high-stress situations
 
-This system is built to remove these dependencies entirely.
+**ASTRA eliminates these limitations with a dedicated hardware approach.**
 
-🚨 Problem Overview
+---
 
-Safety challenges become more serious in:
+## 🚨 Problem Statement
 
-Low-network or rural regions
+Women safety remains a major concern, especially in:
 
-Situations where phone access is not possible
+* Rural or low-network areas
+* Situations where accessing a phone is difficult
+* Emergencies requiring immediate response
 
-High-stress scenarios requiring immediate action
+Mobile-based solutions often fail when they are needed the most.
 
-Existing app-based solutions are often unreliable in such conditions.
+---
 
-💡 System Approach
+## 💡 Proposed Solution
 
-This project introduces a dedicated hardware-based safety device that:
+**ASTRA** is a dedicated embedded safety device that:
 
-Operates independently of smartphones
+* Works completely offline
+* Sends instant SMS alerts with live location
+* Activates with a single button press
+* Operates reliably even in weak network conditions
 
-Sends SMS alerts with precise GPS location
+---
 
-Activates instantly using a single button
+## ⚙️ System Working
 
-Maintains functionality in weak signal environments
+1. User presses SOS button
+2. Device activates instantly
+3. GPS module acquires location (3–5 seconds)
+4. ESP32 processes coordinates
+5. GSM module sends SMS with Google Maps link
+6. Alert is received by emergency contacts
 
-⚙️ Operational Flow
+---
 
-SOS button is triggered
+## 🆚 Comparison with Existing Solutions
 
-Device wakes from standby mode
+| Feature             | Mobile Apps | ASTRA     |
+| ------------------- | ----------- | --------- |
+| Internet Required   | Yes         | ❌ No      |
+| Activation Time     | Slow        | ⚡ Instant |
+| Reliability         | Medium      | High      |
+| Works in Rural Area | ❌ Limited   | ✅ Yes     |
 
-GPS module locks location (~3–5 seconds)
+---
 
-ESP32 processes coordinates
+## 🧠 Engineering Focus
 
-GSM module transmits SMS with location link
+This system is designed with:
 
-Emergency contact receives alert
+* ⚡ Low latency (5–10 sec alert time)
+* 🔋 Power efficiency (deep sleep mode)
+* 📡 Offline reliability
+* 🔁 Robust GSM communication
 
-🆚 Existing vs Proposed System
-Parameter	App-Based Systems	ASTRA Device
-Internet Required	Yes	❌ No
-Response Time	Moderate	⚡ Fast
-Reliability	Variable	High
-Ease of Use	Multi-step	✅ Single tap
-🧠 Design Considerations
+---
 
-⚡ Fast response time (under 10 seconds)
+## 🛡️ Reliability & Fail-Safe Design
 
-🔋 Optimized power usage with standby mode
+* Works without internet dependency
+* Minimal user interaction (single button)
+* Designed for high-stress emergency scenarios
+* Reliable SMS communication under weak signals
 
-📡 GSM-based communication for wider coverage
+---
 
-🔁 Stable and repeatable alert mechanism
+## 🧰 Hardware Components
 
-🛡️ System Reliability
+* ESP32 Microcontroller
+* NEO-6M GPS Module
+* GSM Module (A7670 / SIMCOM)
+* OLED Display (I2C)
+* Li-ion Battery (3.7V)
+* TP4056 Charging Module
 
-No dependency on internet services
+---
 
-Minimal user interaction required
+## 🔌 Circuit Connections
 
-Works in high-stress environments
+| Component  | ESP32 Pins |
+| ---------- | ---------- |
+| GPS TX     | GPIO16     |
+| GPS RX     | GPIO17     |
+| GSM TX     | GPIO26     |
+| GSM RX     | GPIO27     |
+| SOS Button | GPIO4      |
 
-Designed for consistent SMS delivery
+---
 
-🧰 Hardware Setup
+## 📊 Performance Results
 
-ESP32 Development Board
+* ⏱️ Alert Time: 5–10 seconds
+* 📍 GPS Accuracy: ±3m (open), ±6m (urban)
+* 🔋 Battery Life: Up to 72 hours standby
+* ✅ SMS Delivery: 100% success (tested)
 
-NEO-6M GPS Module
+---
 
-GSM Module (SIMCOM / A7670)
+## 🖼️ Prototype
 
-OLED Display (I2C Interface)
+![Prototype](docs/ASTRA.jpeg)
+---
 
-Rechargeable Li-ion Battery
+## 🎥 Demo
 
-Charging Module (TP4056)
+(https://youtu.be/vxLWFFg8v9k)
 
-🔌 Pin Configuration
-Component	ESP32 Pin
-GPS TX	GPIO16
-GPS RX	GPIO17
-GSM TX	GPIO26
-GSM RX	GPIO27
-SOS Switch	GPIO4
-📊 System Performance
+---
 
-⏱️ Alert Trigger Time: 5–10 seconds
+## 💻 Firmware
 
-📍 Location Accuracy: ~3m (open), ~6m (urban)
+```
+firmware/esp32_code/astra.ino
+```
 
-🔋 Standby Backup: Up to 72 hours
+---
 
-✅ SMS Success Rate: Reliable under testing
+## 📄 Research Paper
 
-🖼️ Prototype Implementation
+This project is backed by a research study focusing on IoT-based women safety systems with real-time tracking and emergency response.
 
-🎥 Demonstration
+🔗 [Read Full Paper](https://zenodo.org/records/18864146)
 
-(Add demo video link here)
+---
 
-💻 Codebase
-firmware/esp32_code/safety_system.ino
-📄 Documentation
+## 🧪 Real-World Testing
 
-Research Paper: docs/research_paper.pdf
+Tested under:
 
-Circuit Design: docs/circuit_diagram.png
+* Low GSM signal conditions
+* Urban and open-sky environments
+* Multiple real-time alert scenarios
 
-🧪 Testing Conditions
+Consistent and reliable performance observed.
 
-The system was evaluated under:
+---
 
-Weak GSM network conditions
+## 🚀 Future Enhancements
 
-Outdoor and dense urban environments
+* AI-based automatic threat detection
+* Voice call emergency triggering
+* Wearable miniaturized design
+* Cloud-based real-time tracking
 
-Multiple emergency trigger scenarios
+---
 
-Stable and repeatable results were achieved.
+## ⚡ Key Advantages
 
-🚀 Future Scope
+* Works without internet
+* Faster than mobile applications
+* Reliable in rural areas
+* One-button instant activation
 
-Integration with mobile dashboard
+---
 
-Real-time tracking via cloud
+## 👨‍💻 Team
 
-Miniaturized wearable version
+This project was collaboratively developed by:
 
-Intelligent auto-trigger system
+### 🔹 Mayank Saraswati
 
-⚡ Key Highlights
+* Embedded Systems & Hardware Integration
+* (www.linkedin.com/in/mayank-saraswati-111b80351)
 
-Fully offline operation
+### 🔹 Kashish Dhawan
 
-Faster response than mobile solutions
+* Research & System Design
+* (www.linkedin.com/in/kashish-dhawan-91004623a/)
 
-Works in low connectivity areas
+---
 
-Simple one-button activation
+## 📬 Contact
 
-👩‍💻 Developer
-🔹 Kashish Dhawan
-
-System Design & Research
-
-Embedded System Development
-
-📬 Connect
-
-(Open for collaboration, improvements, and real-world deployment discussions)fline IoT-based women safety device using ESP32, GPS, and GSM
+For collaboration or improvements, feel free to connect.
