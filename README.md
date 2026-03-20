@@ -186,7 +186,7 @@ This project was collaboratively developed by:
 * Research & System Design
 * (www.linkedin.com/in/kashish-dhawan-91004623a/)
 
-  ### 🔹 Mayank Saraswati
+### 🔹 Mayank Saraswati
 
 * Embedded Systems & Hardware Integration
 * (www.linkedin.com/in/mayank-saraswati-111b80351)
